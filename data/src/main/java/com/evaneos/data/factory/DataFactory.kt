@@ -151,110 +151,21 @@ internal object DataFactory {
     }
 
     fun getDestinationDetails(id: Long): DestinationDetails {
-        return createDestinationDetailsList()[id.toInt()]
-    }
+        val destinations = createDestinationList()
 
-    private fun createDestinationDetailsList(): List<DestinationDetails> =
-        listOf(
-            DestinationDetails(
-                id = 217,
-                name = "Barbade",
-                url = "https://evaneos.fr/barbade"
-            ),
-            DestinationDetails(
-                id = 50,
-                name = "Arménie",
-                url = "https://evaneos.fr/armenie"
-            ),
-            DestinationDetails(
-                id = 6,
-                name = "Allemagne",
-                url = "https://evaneos.fr/allemagne"
-            ),
-            DestinationDetails(
-                id = 306,
-                name = "Bali",
-                url = "https://evaneos.fr/bali"
-            ),
-            DestinationDetails(
-                id = 13,
-                name = "Autriche",
-                url = "https://evaneos.fr/autriche"
-            ),
-            DestinationDetails(
-                id = 147,
-                name = "Antilles",
-                url = "https://evaneos.fr/antilles"
-            ),
-            DestinationDetails(
-                id = 373,
-                name = "Basse-Californie",
-                url = "https://evaneos.fr/basse-californie"
-            ),
-            DestinationDetails(
-                id = 73,
-                name = "Afrique du Sud",
-                url = "https://evaneos.fr/afrique-du-sud"
-            ),
-            DestinationDetails(
-                id = 98,
-                name = "Australie",
-                url = "https://evaneos.fr/australie"
-            ),
-            DestinationDetails(
-                id = 426,
-                name = "Amazonie Brésilienne",
-                url = "https://evaneos.fr/amazonie-bresilienne"
-            ),
-            DestinationDetails(
-                id = 377,
-                name = "Bajio",
-                url = "https://evaneos.fr/bajio"
-            ),
-            DestinationDetails(
-                id = 74,
-                name = "Azerbaïdjan",
-                url = "https://evaneos.fr/azerbaidjan"
-            ),
-            DestinationDetails(
-                id = 115,
-                name = "Antarctique",
-                url = "https://evaneos.fr/antarctique"
-            ),
-            DestinationDetails(
-                id = 110,
-                name = "Bangladesh",
-                url = "https://evaneos.fr/bangladesh"
-            ),
-            DestinationDetails(
-                id = 29,
-                name = "Algérie",
-                url = "https://evaneos.fr/algerie"
-            ),
-            DestinationDetails(
-                id = 75,
-                name = "Argentine",
-                url = "https://evaneos.fr/argentine"
-            ),
-            DestinationDetails(
-                id = 173,
-                name = "Açores",
-                url = "https://evaneos.fr/acores"
-            ),
-            DestinationDetails(
-                id = 170,
-                name = "Albanie",
-                url = "https://evaneos.fr/albanie"
-            ),
-            DestinationDetails(
-                id = 287,
-                name = "Angleterre",
-                url = "https://evaneos.fr/angleterre"
-            ),
-            DestinationDetails(
-                id = 107,
-                name = "Bahamas",
-                url = "https://evaneos.fr/bahamas"
-            )
-        )
+        for (destination in destinations) {
+            if (destination.id == id) {
+                val urlSuffix = destination.name
+                    .replace(" ", "-")
+                    .replace("é", "e")
+                    .replace("ï", "i")
+                    .replace("ç", "c")
+                val url = "https://evaneos.fr/$urlSuffix"
+
+                return DestinationDetails(id = destination.id, name = destination.name, url = url)
+            }
+        }
+
+        throw IllegalStateException("Could not find details for destination: id = $id")
+    }
 }
