@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="evaneos_green">#336e6a</color>
+    <color name="evaneos_green_dark">#164845</color>
+    <color name="evaneos_green_light">#12B886</color>
 </resources>
