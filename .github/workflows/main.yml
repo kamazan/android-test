@@ -40,4 +40,4 @@ jobs:
 
     # Step 6: Run build
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew app:assemble
