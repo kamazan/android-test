@@ -41,3 +41,11 @@ object DaggerHilt {
     const val android = "com.google.dagger:hilt-android:$version"
     const val compiler = "com.google.dagger:hilt-compiler:$version"
 }
+
+object Navigation {
+    private const val version = "2.3.5"
+
+    const val safeArgsGradlePlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$version"
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:$version"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:$version"
+}

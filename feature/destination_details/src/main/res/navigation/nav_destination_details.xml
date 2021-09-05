@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_destination_details"
+    app:startDestination="@id/destinationDetailsFragment">
+
+    <fragment
+        android:id="@+id/destinationDetailsFragment"
+        android:name="com.evaneos.destination_details.ui.DestinationDetailsFragment"
+        tools:layout="@layout/fragment_destination_details"
+        android:label="DestinationDetailsFragment">
+
+
+        <argument
+            android:name="destinationId"
+            app:argType="long"
+            />
+    </fragment>
+</navigation>
