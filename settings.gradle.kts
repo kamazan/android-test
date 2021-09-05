@@ -1,3 +1,6 @@
+rootProject.name = "EvaneosTest"
+
 include(":data")
 include(":app")
-rootProject.name = "EvaneosTest"
+include(":feature:destinations_list")
+include(":feature:destination_details")
