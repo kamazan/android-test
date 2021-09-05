@@ -5,6 +5,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -37,6 +38,10 @@ android {
 
 dependencies {
 
+    // Feature modules
+    implementation(project(":feature:destinations_list"))
+    implementation(project(":feature:destination_details"))
+
     implementation(Kotlin.kotlinStdLib)
     implementation(Android.coreKtx)
     implementation(Android.appcompat)
@@ -52,4 +57,8 @@ dependencies {
     // Dagger Hilt
     implementation(DaggerHilt.android)
     kapt(DaggerHilt.compiler)
+
+    // Jetpack Navigation
+    implementation(Navigation.navigationFragment)
+    implementation(Navigation.navigationUi)
 }

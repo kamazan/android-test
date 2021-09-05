@@ -1,6 +1,9 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -42,4 +45,12 @@ dependencies {
     testImplementation(Testing.junit)
     androidTestImplementation(Testing.junitAndroid)
     androidTestImplementation(Testing.espressoCore)
+
+    // Dagger Hilt
+    implementation(DaggerHilt.android)
+    kapt(DaggerHilt.compiler)
+
+    // Jetpack Navigation
+    implementation(Navigation.navigationFragment)
+    implementation(Navigation.navigationUi)
 }

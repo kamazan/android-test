@@ -12,6 +12,7 @@ buildscript {
         classpath(Android.gradleTools)
         classpath(Kotlin.gradlePlugin)
         classpath(DaggerHilt.gradlePlugin)
+        classpath(Navigation.safeArgsGradlePlugin)
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
 
         // NOTE: Do not place your application dependencies here; they belong
