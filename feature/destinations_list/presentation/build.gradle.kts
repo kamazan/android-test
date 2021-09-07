@@ -1,7 +1,5 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
@@ -13,12 +11,13 @@ android {
     buildToolsVersion(Sdk.buildTools)
 
     defaultConfig {
-        applicationId = "com.evaneos.evaneostest"
         minSdkVersion(Sdk.minSdk)
         targetSdkVersion(Sdk.targetSdk)
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = Testing.testInstrumentationRunner
+
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -35,30 +34,27 @@ android {
         jvmTarget = Java.version
     }
 
-    packagingOptions {
-        exclude("META-INF/*.kotlin_module")
+    buildFeatures {
+        viewBinding = true
     }
 }
 
 dependencies {
-
-    // Feature modules
-    implementation(project(":data"))
-    implementation(project(":common:data"))
-    implementation(project(":feature:destinations_list:data"))
     implementation(project(":feature:destinations_list:domain"))
-    implementation(project(":feature:destinations_list:presentation"))
-    implementation(project(":feature:destination_details"))
+    implementation(project(":common:presentation"))
+    testImplementation(project(":common:test"))
 
     implementation(Kotlin.kotlinStdLib)
     implementation(Android.coreKtx)
     implementation(Android.appcompat)
+
     implementation(UI.material)
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${rootProject.extra["kotlin_version"]}")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation(UI.swipeRefreshLayout)
+
     testImplementation(Testing.junit)
+    testImplementation(Testing.mockk)
+    testImplementation(Testing.kotlinCoroutines)
+    testImplementation(Testing.androidCore)
     androidTestImplementation(Testing.junitAndroid)
     androidTestImplementation(Testing.espressoCore)
 
