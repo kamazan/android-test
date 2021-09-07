@@ -2,10 +2,8 @@ package com.evaneos.evaneostest.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.evaneos.destinations_list.navigation.DestinationsListActions
 import com.evaneos.evaneostest.R
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {

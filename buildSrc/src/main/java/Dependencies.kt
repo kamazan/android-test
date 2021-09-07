@@ -12,9 +12,11 @@ object Java {
 
 object Kotlin {
     const val version = "1.4.32"
+    const val coroutinesVersion = "1.5.2"
 
     const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:$version"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
 }
 
 object Android {
@@ -28,10 +30,14 @@ object Testing {
     const val junit = "junit:junit:4.+"
     const val junitAndroid = "androidx.test.ext:junit:1.1.2"
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    const val androidCore = "androidx.arch.core:core-testing:2.1.0"
+    const val mockk = "io.mockk:mockk:1.12.0"
+    const val kotlinCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Kotlin.coroutinesVersion}"
 }
 
 object UI {
     const val material = "com.google.android.material:material:1.3.0"
+    const val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }
 
 object DaggerHilt {

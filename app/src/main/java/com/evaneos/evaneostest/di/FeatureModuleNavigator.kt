@@ -1,7 +1,7 @@
 package com.evaneos.evaneostest.di
 
 import androidx.navigation.NavController
-import com.evaneos.destinations_list.navigation.DestinationsListActions
+import com.evaneos.destinations_list.presentation.navigation.DestinationsListActions
 import com.evaneos.evaneostest.NavAppDirections
 import dagger.Binds
 import dagger.Module
