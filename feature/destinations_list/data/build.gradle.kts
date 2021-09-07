@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = Java.version
     }
+    packagingOptions {
+        exclude("META-INF/data_debug.kotlin_module")
+    }
 }
 
 dependencies {
