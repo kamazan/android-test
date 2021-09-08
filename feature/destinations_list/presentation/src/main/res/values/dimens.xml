@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="destinations_list_vertical_margin">32dp</dimen>
+    <dimen name="destinations_list_horizontal_margin">16dp</dimen>
+
+    <dimen name="destinations_card_height">280dp</dimen>
+    <dimen name="destinations_card_radius">12dp</dimen>
+    <dimen name="destinations_name_bottom_margin">8dp</dimen>
+    <dimen name="destinations_rating_bar_height">18dp</dimen>
+    <dimen name="destinations_rating_bar_bottom_margin">8dp</dimen>
+</resources>

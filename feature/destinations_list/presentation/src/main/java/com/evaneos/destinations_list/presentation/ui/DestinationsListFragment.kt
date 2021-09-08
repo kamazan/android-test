@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.evaneos.common.presentation.model.Route
 import com.evaneos.common.presentation.ui.SnackbarViewHolder
+import com.evaneos.destinations_list.R
 import com.evaneos.destinations_list.databinding.FragmentDestinationsListBinding
 import com.evaneos.destinations_list.presentation.navigation.DestinationsListActions
 import com.evaneos.destinations_list.presentation.viewmodel.DestinationsListViewModel
@@ -14,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class DestinationsListFragment: Fragment() {
+class DestinationsListFragment : Fragment() {
     @Inject
     lateinit var destinationsListActions: DestinationsListActions
 
@@ -30,13 +32,26 @@ class DestinationsListFragment: Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.load()
+    }
 
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        activity?.setTitle(R.string.destination_list_title)
         with(viewModel) {
             DestinationsListViewHolder(binding, viewLifecycleOwner, viewModel)
             SnackbarViewHolder(binding.root, viewLifecycleOwner, requestStatus, ::load)
-            viewModel.load()
+            route.observe(viewLifecycleOwner, ::onRoute)
+        }
+    }
+
+    private fun onRoute(route: Route) {
+        when (route) {
+            is Route.DestinationDetails -> destinationsListActions.navigateToDestinationDetails(
+                route.destinationId
+            )
         }
     }
 }

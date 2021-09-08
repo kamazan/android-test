@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="destination_list_title">Destinations</string>
+    <string name="destination_item_image_description">Image de la destination</string>
+    <string name="destination_item_empty">Aucune destination trouvée</string>
+    <string name="destination_item_empty_action">@string/retry</string>
+</resources>
