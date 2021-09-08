@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    app:cardCornerRadius="@dimen/destinations_card_radius"
+    android:layout_height="@dimen/destinations_card_height">
+
+    <ImageView
+        android:id="@+id/destinationItemImage"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        tools:background="@color/evaneos_green_light"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/destination_item_image_description"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        >
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/destinationItemTextName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/destinationItemRating"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="@dimen/destinations_name_bottom_margin"
+            tools:text="Asie"
+            tools:style="@style/TextAppearance.Evaneos.Headline3"
+            style="@style/TextDestinationName"
+            />
+
+        <RatingBar
+            android:id="@+id/destinationItemRating"
+            style="@style/DestinationRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/destinationItemTextTag"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/destinations_rating_bar_bottom_margin"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/destinationItemTextTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            tools:style="@style/TextAppearance.Evaneos.Headline6"
+            style="@style/TextDestinationTag"
+            tools:text="incontournable"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

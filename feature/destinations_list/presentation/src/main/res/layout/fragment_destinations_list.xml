@@ -12,10 +12,12 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <View
-            android:id="@+id/destinationsListPlaceholderView"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/destinationsListRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/destination_list_item"
             />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

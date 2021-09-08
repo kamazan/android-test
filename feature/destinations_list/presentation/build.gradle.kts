@@ -37,11 +37,16 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    packagingOptions {
+        exclude("META-INF/presentation_debug.kotlin_module")
+    }
 }
 
 dependencies {
     implementation(project(":feature:destinations_list:domain"))
     implementation(project(":common:presentation"))
+    implementation(project(":common:data"))
     testImplementation(project(":common:test"))
 
     implementation(Kotlin.kotlinStdLib)
@@ -50,6 +55,7 @@ dependencies {
 
     implementation(UI.material)
     implementation(UI.swipeRefreshLayout)
+    implementation(UI.coil)
 
     testImplementation(Testing.junit)
     testImplementation(Testing.mockk)

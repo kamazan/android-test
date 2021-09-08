@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextDestinationCard">
+        <item name="android:textAppearance">?textAppearanceHeadline3</item>
+        <item name="android:textColor">?colorOnPrimary</item>
+    </style>
+
+    <style name="TextDestinationName">
+        <item name="android:textAppearance">?textAppearanceHeadline3</item>
+        <item name="android:textColor">?colorOnPrimary</item>
+    </style>
+
+    <style name="DestinationRating">
+        <item name="android:textAppearance">?textAppearanceHeadline3</item>
+        <item name="android:textColor">?colorOnPrimary</item>
+        <item name="android:isIndicator">false</item>
+        <item name="android:numStars">5</item>
+        <item name="android:progressDrawable">@drawable/rating_bar</item>
+        <item name="android:minHeight">@dimen/destinations_rating_bar_height</item>
+        <item name="android:maxHeight">@dimen/destinations_rating_bar_height</item>
+    </style>
+
+    <style name="TextDestinationTag">
+        <item name="android:textAppearance">?textAppearanceHeadline6</item>
+        <item name="android:textColor">?colorOnPrimary</item>
+        <item name="android:background">@drawable/bg_tag</item>
+    </style>
+
+    <style name="TextEmptyDestination">
+        <item name="android:textAppearance">?textAppearanceHeadline3</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ButtonEmptyDestination">
+        <item name="android:textAppearance">?textAppearanceHeadline6</item>
+    </style>
+</resources>

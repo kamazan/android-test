@@ -38,6 +38,7 @@ object Testing {
 object UI {
     const val material = "com.google.android.material:material:1.3.0"
     const val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    const val coil = "io.coil-kt:coil:1.2.1"
 }
 
 object DaggerHilt {
