@@ -1,48 +1,30 @@
-# android-test
+# Technical Android Test
 
-### Introduction
+## Exercice's goal
+ - Use the provided FakeDestinationFetchingService to retrieve a list of holiday destinations
+ - Display the destinations with a list of card views and add the ability to navigate to a destination's web url
+ - Follow the design guidelines available on [Figma](https://www.figma.com/file/4yIJXkSfo9xACHgG2KN0Yu/App%2FTestAlternantsMobileDestinationGuide?node-id=3%3A77)
+ - Build the app using the MVVM design patterns and coroutines
 
-Dans ce test, tu vas devoir **construire une UI qui affiche des données** provenant d'une (fake) API.
+## Architecture
+The app is a multi-module project using the "Clean Architecture" principles with data, domain & presentation layers. The following modules are used in the project:
 
-Nous avons déjà créé le service `FakeDestinationFetchingService` qui va retourner les données. Attention, cette API est un peu lente et ne marche pas toujours très bien ;)
+- app: base module containing the single Activity & the app's navigation's graph
+- data: fake data provider
+- common:data: common classes across data modules
+- common:presentation: common classes across presentation modules
+- common:test: common classes used for solely testing purposes
+- feature:destinations_list:data/domain/presentation: three modules layers in charge of retrieving and displaying destinations
+- feature:destination_details:data/domain/presentation: three modules layers in charge of retrieving and displaying destination details
 
-**L'écran d'accueil correspond à la vue Destinations.**
+## Technical difficulties
+- Using Jetpack Navigation to navigate between modules and keeping the Safe-Args features
+- Android's RatingBar not handling vector drawables
 
-Pour réaliser ce test, tu peux **forker ce repo** et faire l'implémentation de ton coté, tu nous enverras ensuite l'URL de ton repo.
-
-Chez Evaneos, nous accordons beaucoup d'importance à la **qualité du code et à la qualité de l'expérience utilisateur** de nos produits. Dans ce test, notre but n'est pas tant de savoir si tu parviendras à construire ces écrans mais plutôt **la manière dont tu le feras**. N'hésite pas à faire attention aux détails, à être **rigoureux et prévoyant** sur l'expérience utilisateur (lenteur API, qualité UI) et sur **la propreté, la structure et la clarté du code**. N'hésite pas à nous solliciter si tu as des questions.
-
-Nous souhaitons aussi que tu nous montres ta capacité à **implémenter des tests unitaires** (tu n'es pas obligé de tout couvrir, mais essaie de porter une attention particulière à ceux que tu écriras).
-
-Bonus : utiliser de l'injection de dépendances.
-
-### Contraintes
-
-- Utiliser une architecture **MVVM**
-- Utiliser des **coroutines**
-
-### Maquettes
-
-iOS : [https://www.figma.com/file/4yIJXkSfo9xACHgG2KN0Yu/App-TestAlternantsMobileDestinationGuide?node-id=1%3A39](https://www.figma.com/file/4yIJXkSfo9xACHgG2KN0Yu/App-TestAlternantsMobileDestinationGuide?node-id=1%3A39)
-
-Android : [https://www.figma.com/file/4yIJXkSfo9xACHgG2KN0Yu/App-TestAlternantsMobileDestinationGuide?node-id=3%3A77](https://www.figma.com/file/4yIJXkSfo9xACHgG2KN0Yu/App-TestAlternantsMobileDestinationGuide?node-id=3%3A77)
-
-### Vue Destinations
-
-Cet écran acceuille les destinations que le service retourne. 
-
-Les destinations doivent être listées par ordre alphabétique.
-
-Lorsque l'utilisateur sélectionne une destination, l'app affiche la vue Détails qui correspond à cette destination.
-
-### Vue Détails
-
-Cet écran n'affiche qu'une webview qui a pour URL celle fournie dans l'objet `DestinationDetails`
-
-### Règles
-
-- Limite autant que possible les dépendances externes et justifie leur utilisation.
-- Ne modifie pas le code du module `data`. Contacte-nous si tu penses qu'il y a un problème !
-- Essaie de faire des commits régulièrement, nous aimerions avoir un aperçu de l'évolution de ton test.
-
-Lorsque tu auras terminé, nous te demandons d'expliquer tes choix techniques, les difficultés rencontrées, les patterns et dépendances que tu as utilisés pour la première fois et ce que tu aurais ajouté ou modifié si tu avais eu plus de temps à allouer au test, dans un fichier readme.
+## Room for improvements
+- Better unit tests coverage
+- Handling interactions with the webview in a more "MVVM" way (with the help of databinding?)
+- UI tests (not implemented at all)
+- Better UI/UX for error handling (instead of plain Snackbars)
+- Improve the Github actions for a better CI
+- Use of ktlint for a better code formatting
