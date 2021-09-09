@@ -13,6 +13,10 @@
         <argument
             android:name="destinationId"
             app:argType="long" />
+
+        <argument
+            android:name="destinationName"
+            app:argType="string" />
     </action>
 
     <include app:graph="@navigation/nav_destinations_list" />

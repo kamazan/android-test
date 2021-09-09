@@ -1,5 +1,7 @@
 package com.evaneos.evaneostest.di
 
+import com.evaneos.destination_details.domain.interactor.FetchDestinationDetailsInteractor
+import com.evaneos.destination_details.domain.repository.DestinationDetailsRepository
 import com.evaneos.destinations_list.data.di.DestinationsListRepositoryModule
 import com.evaneos.destinations_list.domain.interactor.FetchDestinationsListInteractor
 import com.evaneos.destinations_list.domain.repository.DestinationsListRepository
@@ -16,6 +18,13 @@ object InteractorModule {
         repository: DestinationsListRepository
     ): FetchDestinationsListInteractor {
         return FetchDestinationsListInteractor(repository)
+    }
+
+    @Provides
+    fun provideFetchDestinationDetailsInteractor(
+        repository: DestinationDetailsRepository
+    ): FetchDestinationDetailsInteractor {
+        return FetchDestinationDetailsInteractor(repository)
     }
 }
 

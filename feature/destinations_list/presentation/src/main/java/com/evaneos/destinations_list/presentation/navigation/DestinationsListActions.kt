@@ -1,5 +1,5 @@
 package com.evaneos.destinations_list.presentation.navigation
 
 interface DestinationsListActions {
-    fun navigateToDestinationDetails(destinationId: Long)
+    fun navigateToDestinationDetails(destinationId: Long, destinationName: String)
 }

@@ -14,10 +14,11 @@ import javax.inject.Inject
 class FeatureModuleNavigator @Inject constructor(
     private val navController: NavController,
 ) : DestinationsListActions {
-    override fun navigateToDestinationDetails(destinationId: Long) {
+    override fun navigateToDestinationDetails(destinationId: Long, destinationName: String) {
         navController.navigate(
             NavAppDirections.actionDestinationsListToDestinationDetails(
-                destinationId
+                destinationId,
+                destinationName,
             )
         )
     }

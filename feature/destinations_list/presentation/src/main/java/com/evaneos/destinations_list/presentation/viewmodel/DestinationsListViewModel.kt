@@ -8,7 +8,6 @@ import com.evaneos.common.presentation.model.Route
 import com.evaneos.common.presentation.utils.SingleLiveEvent
 import com.evaneos.common.presentation.viewmodel.RequestStatusViewModel
 import com.evaneos.destinations_list.domain.interactor.FetchDestinationsListInteractor
-import com.evaneos.destinations_list.presentation.mapper.DomainDestinationToDestinationMapper
 import com.evaneos.destinations_list.domain.model.Destination as DomainDestination
 import com.evaneos.destinations_list.presentation.model.Destination
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DestinationsListViewModel @Inject constructor(
     private val fetchDestinationsListInteractor: FetchDestinationsListInteractor,
-    private val destinationMapper: Mapper<DomainDestination, Destination> = DomainDestinationToDestinationMapper(),
+    private val destinationMapper: Mapper<DomainDestination, Destination>,
 ) : RequestStatusViewModel() {
     private val _destinations = MutableLiveData<List<Destination>>()
     val destinations: LiveData<List<Destination>> = _destinations
@@ -39,6 +38,6 @@ class DestinationsListViewModel @Inject constructor(
     }
 
     fun selectDestination(destination: Destination) {
-        _route.value = Route.DestinationDetails(destination.id)
+        _route.value = Route.DestinationDetails(destination.id, destination.name)
     }
 }
