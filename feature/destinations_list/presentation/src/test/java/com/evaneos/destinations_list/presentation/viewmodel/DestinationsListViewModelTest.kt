@@ -69,6 +69,9 @@ class DestinationsListViewModelTest {
         val destination = DestinationFixtures.getDestination()
 
         viewModel.selectDestination(destination)
-        assertEquals(Route.DestinationDetails(destination.id), viewModel.route.getOrAwaitValue())
+        assertEquals(
+            Route.DestinationDetails(destination.id, destination.name),
+            viewModel.route.getOrAwaitValue()
+        )
     }
 }

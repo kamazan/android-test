@@ -40,6 +40,7 @@ android {
 
     packagingOptions {
         exclude("META-INF/presentation_debug.kotlin_module")
+        exclude("META-INF/data_debug.kotlin_module")
     }
 }
 

@@ -18,9 +18,4 @@ class DestinationsListDataModule {
     fun provideDestinationMapper(): Mapper<FetchingServiceDestination, DomainDestination> {
         return ServiceDestinationToDomainDestinationMapper()
     }
-
-    @Provides
-    fun provideDestinationFetchingService(): DestinationFetchingService {
-        return FakeDestinationFetchingService()
-    }
 }

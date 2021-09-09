@@ -50,7 +50,8 @@ class DestinationsListFragment : Fragment() {
     private fun onRoute(route: Route) {
         when (route) {
             is Route.DestinationDetails -> destinationsListActions.navigateToDestinationDetails(
-                route.destinationId
+                route.destinationId,
+                route.destinationName,
             )
         }
     }

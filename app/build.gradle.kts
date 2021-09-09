@@ -45,10 +45,13 @@ dependencies {
     // Feature modules
     implementation(project(":data"))
     implementation(project(":common:data"))
+    implementation(project(":common:presentation"))
     implementation(project(":feature:destinations_list:data"))
     implementation(project(":feature:destinations_list:domain"))
     implementation(project(":feature:destinations_list:presentation"))
-    implementation(project(":feature:destination_details"))
+    implementation(project(":feature:destination_details:data"))
+    implementation(project(":feature:destination_details:domain"))
+    implementation(project(":feature:destination_details:presentation"))
 
     implementation(Kotlin.kotlinStdLib)
     implementation(Android.coreKtx)
